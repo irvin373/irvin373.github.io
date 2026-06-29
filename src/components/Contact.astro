@@ -1,0 +1,440 @@
+---
+const socials = [
+  { label: 'GitHub',   href: 'https://github.com/irvin373',      img: '/assets/github.svg',   desc: 'github.com/irvin373' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/irvin373', img: '/assets/linkedin.svg', desc: 'linkedin.com/in/irvin373' },
+  { label: 'Email',    href: 'mailto:irvin373@gmail.com',        img: null, icon: 'mail',      desc: 'irvin373@gmail.com' },
+];
+---
+
+<section id="contact" class="section-wrapper contact-section">
+  <div class="section-inner">
+    <p class="section-label">Let's talk</p>
+    <h2 class="section-title">Get In <em>Touch</em></h2>
+
+    <div class="contact-grid">
+
+      <!-- Left: intro + social links -->
+      <div class="contact-left">
+        <p class="contact-intro">
+          Whether you're looking for a senior mobile engineer, want to collaborate on an AI-powered project,
+          or just want to connect — my inbox is always open.
+        </p>
+
+        <div class="social-cards">
+          {socials.map(s => (
+            <a href={s.href} class="social-card glass-card" target={s.href.startsWith('mailto') ? undefined : '_blank'} rel="noopener noreferrer">
+              <div class="social-icon-wrap">
+                {s.img
+                  ? <img src={s.img} alt={s.label} width="22" height="22" />
+                  : <i data-lucide={s.icon} style="width:22px;height:22px;color:#fff;"></i>
+                }
+              </div>
+              <div class="social-info">
+                <p class="social-label">{s.label}</p>
+                <p class="social-desc">{s.desc}</p>
+              </div>
+              <i data-lucide="arrow-up-right" class="social-arrow"></i>
+            </a>
+          ))}
+        </div>
+
+        <div class="avail-badge">
+          <span class="avail-dot" aria-hidden="true"></span>
+          <span>Open to senior / staff engineer opportunities</span>
+        </div>
+      </div>
+
+      <!-- Right: contact form -->
+      <div class="contact-right">
+        <form id="contact-form" class="contact-form glass-card" novalidate>
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <div class="input-wrap">
+              <i data-lucide="user" class="input-icon"></i>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Jane Doe"
+                class="form-input"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <div class="input-wrap">
+              <i data-lucide="at-sign" class="input-icon"></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="jane@company.com"
+                class="form-input"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <div class="input-wrap">
+              <i data-lucide="tag" class="input-icon"></i>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Project opportunity, collaboration..."
+                class="form-input"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Tell me about your project or idea..."
+              class="form-input form-textarea"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary submit-btn">
+            <i data-lucide="send" style="width:16px;height:16px;"></i>
+            Send Message
+          </button>
+
+          <p id="form-success" class="form-success" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <span class="logo-badge-sm">IC</span>
+      <span>Irvin Cossio Chavalier</span>
+    </div>
+    <p class="footer-copy">
+      &copy; {new Date().getFullYear()} · Built with
+      <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>
+      &amp; passion in Cochabamba 🇧🇴
+    </p>
+    <div class="footer-socials">
+      <a href="https://github.com/irvin373" target="_blank" rel="noopener" aria-label="GitHub">
+        <img src="/assets/github.svg" alt="GitHub" width="18" height="18" />
+      </a>
+      <a href="https://linkedin.com/in/irvin373" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img src="/assets/linkedin.svg" alt="LinkedIn" width="18" height="18" />
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .contact-section {
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Two-column grid ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* ── Left col ── */
+  .contact-intro {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+
+  .social-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .social-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .social-icon-wrap {
+    width: 44px;
+    height: 44px;
+    background: rgba(232, 4, 175, 0.1);
+    border: 1px solid rgba(232, 4, 175, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .social-info { flex: 1; }
+
+  .social-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 2px;
+  }
+
+  .social-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .social-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .social-card:hover .social-arrow {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  /* Availability badge */
+  .avail-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    background: rgba(0, 255, 136, 0.06);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 50px;
+    font-size: 13px;
+    color: var(--accent-green);
+  }
+
+  .avail-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-green);
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
+    50%       { box-shadow: 0 0 0 6px rgba(0, 255, 136, 0); }
+  }
+
+  /* ── Form ── */
+  .contact-form {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 14px;
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  .form-input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px 12px 42px;
+    color: var(--text);
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    outline: none;
+  }
+
+  .form-textarea {
+    padding: 12px 14px;
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-input::placeholder {
+    color: var(--text-muted);
+    opacity: 0.6;
+  }
+
+  .form-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(232, 4, 175, 0.1);
+  }
+
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .form-success {
+    font-size: 13px;
+    color: var(--accent-green);
+    text-align: center;
+    min-height: 20px;
+  }
+
+  /* ── Footer ── */
+  .site-footer {
+    position: relative;
+    z-index: 10;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    padding: 28px 24px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .logo-badge-sm {
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 11px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-copy {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .footer-copy a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  .footer-copy a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .footer-socials a {
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+
+  .footer-socials a:hover {
+    opacity: 1;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successMsg = document.getElementById('form-success')!;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const name = (data.get('name') as string)?.trim();
+    if (!name) return;
+
+    // In a real deployment, POST to a form service (Formspree, Resend, etc.)
+    // For now, show success feedback
+    const btn = form.querySelector('.submit-btn') as HTMLButtonElement;
+    btn.disabled = true;
+    btn.innerHTML = '<i data-lucide="check" style="width:16px;height:16px;"></i> Sent!';
+
+    successMsg.textContent = `Thanks ${name}! I'll get back to you shortly.`;
+    form.reset();
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<i data-lucide="send" style="width:16px;height:16px;"></i> Send Message';
+      successMsg.textContent = '';
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+    }, 5000);
+  });
+</script>

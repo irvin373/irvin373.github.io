@@ -1,0 +1,240 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Irvin Cossio — Senior Mobile & Frontend Engineer',
+  description = 'Senior Mobile & Frontend Engineer specializing in React Native, React, and TypeScript. 8+ years building products for millions of users across fintech, logistics, and enterprise.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" href="/assets/favicon/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN config must come before the CDN script -->
+    <script is:inline>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              accent: '#e804af',
+              'accent-green': '#00ff88',
+              'accent-cyan': '#00d4ff',
+            },
+            fontFamily: {
+              mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <script is:inline src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script is:inline src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <style is:global>
+      :root {
+        --accent: #e804af;
+        --accent-green: #00ff88;
+        --accent-cyan: #00d4ff;
+        --bg: #080808;
+        --bg-glass: rgba(8, 8, 8, 0.75);
+        --bg-glass-strong: rgba(8, 8, 8, 0.97);
+        --card: #111111;
+        --card-hover: #181818;
+        --border: #1e1e1e;
+        --border-bright: rgba(232, 4, 175, 0.3);
+        --text: #e8e8e8;
+        --text-muted: #777777;
+        --text-light: #ffffff;
+        --main-bg-color: rgba(8, 8, 8, 0.55);
+        --main-bg-color-later: rgba(8, 8, 8, 0.97);
+        --section-break-bg: #0d0d0d;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-family: 'Inter', system-ui, sans-serif;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 3px;
+      }
+
+      /* ── Shared section styles ── */
+      .section-wrapper {
+        position: relative;
+        z-index: 10;
+        background: var(--bg);
+      }
+
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 100px 24px;
+      }
+
+      .section-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--text-light);
+        line-height: 1.1;
+        margin-bottom: 64px;
+      }
+
+      .section-title em {
+        font-style: normal;
+        color: var(--accent);
+      }
+
+      /* ── Glass card ── */
+      .glass-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease,
+          transform 0.3s ease;
+      }
+
+      .glass-card:hover {
+        border-color: var(--border-bright);
+        box-shadow: 0 0 40px rgba(232, 4, 175, 0.1);
+        transform: translateY(-4px);
+      }
+
+      /* ── Gradient text utility ── */
+      .gradient-text {
+        background: linear-gradient(135deg, var(--accent), var(--accent-green));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── Button styles ── */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .btn-primary:hover {
+        background: #c903a0;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(232, 4, 175, 0.35);
+      }
+
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: transparent;
+        color: var(--text-light);
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .btn-ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(232, 4, 175, 0.15);
+      }
+
+      @media (max-width: 768px) {
+        .section-inner {
+          padding: 72px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body class="dark">
+    <slot />
+
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      });
+    </script>
+  </body>
+</html>

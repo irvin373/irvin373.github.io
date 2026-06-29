@@ -1,0 +1,656 @@
+---
+// Floating icon data — mirrors the SCSS @for loop with pre-computed "random" values.
+// scale = 0.4 + (i * 0.04), depth = (i % 4) + 1, blur = 1.5 + (depth-1)*0.83
+const icons = [
+  {
+    file: "ban",
+    left: 45,
+    dur: 15,
+    delay: 8,
+    s: 0.54,
+    blur: 3.33,
+    bright: 1.2,
+    z: 1,
+  },
+  {
+    file: "chico",
+    left: 12,
+    dur: 18,
+    delay: 3,
+    s: 0.88,
+    blur: 1.16,
+    bright: 1.2,
+    z: 0,
+  },
+  {
+    file: "gameboy",
+    left: 28,
+    dur: 20,
+    delay: 6,
+    s: 0.56,
+    blur: 2.5,
+    bright: 1.1,
+    z: 2,
+  },
+  {
+    file: "tori",
+    left: 58,
+    dur: 16,
+    delay: 14,
+    s: 0.6,
+    blur: 2.33,
+    bright: 1.2,
+    z: 1,
+  },
+  {
+    file: "pika",
+    left: 83,
+    dur: 13,
+    delay: 2,
+    s: 0.64,
+    blur: 3.16,
+    bright: 1.3,
+    z: 0,
+  },
+  {
+    file: "react",
+    left: 5,
+    dur: 19,
+    delay: 9,
+    s: 0.68,
+    blur: 3.99,
+    bright: 1.4,
+    z: -1,
+  },
+  {
+    file: "droid",
+    left: 37,
+    dur: 17,
+    delay: 15,
+    s: 0.72,
+    blur: 2.5,
+    bright: 1.1,
+    z: 2,
+  },
+  {
+    file: "cli",
+    left: 90,
+    dur: 12,
+    delay: 7,
+    s: 0.6,
+    blur: 3.16,
+    bright: 1.3,
+    z: 0,
+  },
+  {
+    file: "pok",
+    left: 18,
+    dur: 22,
+    delay: 13,
+    s: 0.84,
+    blur: 3.99,
+    bright: 1.4,
+    z: -1,
+  },
+  {
+    file: "ps4",
+    left: 50,
+    dur: 15,
+    delay: 1,
+    s: 0.88,
+    blur: 1.5,
+    bright: 1.1,
+    z: 2,
+  },
+  {
+    file: "qrp",
+    left: 78,
+    dur: 18,
+    delay: 10,
+    s: 0.92,
+    blur: 2.33,
+    bright: 1.2,
+    z: 1,
+  },
+  {
+    file: "rai",
+    left: 32,
+    dur: 14,
+    delay: 5,
+    s: 0.96,
+    blur: 3.16,
+    bright: 1.3,
+    z: 0,
+  },
+  {
+    file: "tri",
+    left: 42,
+    dur: 20,
+    delay: 12,
+    s: 0.82,
+    blur: 3.99,
+    bright: 1.4,
+    z: -1,
+  },
+  {
+    file: "burger",
+    left: 68,
+    dur: 16,
+    delay: 3,
+    s: 0.5,
+    blur: 1.5,
+    bright: 1.1,
+    z: 2,
+  },
+];
+---
+
+<!-- Spacer so document flow reserves viewport height for fixed hero -->
+<div
+  id="home"
+  style="height:100vh;position:relative;z-index:2;pointer-events:none;"
+>
+</div>
+
+<!-- Rotating gradient — lives behind everything -->
+<div class="anim-gradient" aria-hidden="true"></div>
+
+<!-- Fixed hero panel -->
+<div id="hero-header" class="hero-header">
+  <div id="hero-dsg" class="hero-dsg">
+    <!-- Profile photo -->
+    <img
+      src="/assets/irvin.png"
+      alt="Irvin Cossio"
+      class="profile-photo"
+      draggable="false"
+    />
+
+    <!-- Floating icons tray (full viewport, behind titles) -->
+    <div class="floating-tray" aria-hidden="true">
+      {
+        icons.map((ic) => (
+          <img
+            class="floating-icon"
+            src={`/assets/svg/${ic.file}.svg`}
+            alt=""
+            aria-hidden="true"
+            style={[
+              `left:${ic.left}%`,
+              `--s:${ic.s}`,
+              `--dur:${ic.dur}s`,
+              `--dd:-${ic.delay}s`,
+              `filter:blur(${ic.blur}px) brightness(${ic.bright})`,
+              `z-index:${ic.z}`,
+            ].join(";")}
+          />
+        ))
+      }
+    </div>
+
+    <!-- Text titles — z-index 5 so they sit above icons -->
+    <div id="hero-titles" class="hero-titles">
+      <span class="f-hello">Hello!&nbsp;&nbsp;I'm</span>
+      <h1 class="f-name">Irvin Cossio</h1>
+
+      <p class="f-subtitle">
+        <span class="word-1">Senior&nbsp;</span>
+        <span class="word-2">Mobile / Frontend&nbsp;</span>
+        <span class="word-3">Engineer</span>
+      </p>
+
+      <img
+        src="/assets/arrow.svg"
+        alt=""
+        class="titles-arrow"
+        draggable="false"
+      />
+
+      <p class="f-subtitle f-subtitle-addon">
+        <span class="word-3">Now with&nbsp;</span>
+        <span class="word-2">AI power</span>
+      </p>
+    </div>
+
+    <!-- CTA / social row pinned to bottom of hero -->
+    <div class="hero-bottom">
+      <a href="#about" class="scroll-cta">
+        <span>Explore My Work</span>
+        <span class="cta-arrow">↓</span>
+      </a>
+
+      <div class="hero-socials">
+        <a
+          href="https://github.com/irvin373"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <img src="/assets/github.svg" alt="GitHub" width="22" height="22" />
+        </a>
+        <a
+          href="https://linkedin.com/in/irvin373"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <img
+            src="/assets/linkedin.svg"
+            alt="LinkedIn"
+            width="22"
+            height="22"
+          />
+        </a>
+        <a href="mailto:irvin373@gmail.com" aria-label="Email">
+          <i data-lucide="mail" style="width:22px;height:22px;color:#fff;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  /* ═══════════════════════════════════════════
+     ROTATING GRADIENT BACKGROUND
+     ═══════════════════════════════════════════ */
+  .anim-gradient {
+    position: fixed;
+    top: -70vh;
+    right: -70vw;
+    bottom: -70vh;
+    left: -70vw;
+    background-image: linear-gradient(300deg, #e804af 20%, #232626 60%);
+    animation: rotate-gradient 10s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  @keyframes rotate-gradient {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO HEADER (fixed panel)
+     ═══════════════════════════════════════════ */
+  .hero-header {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--main-bg-color);
+    z-index: 1;
+    transition: background 0.5s ease;
+  }
+
+  .hero-header.high-contrast {
+    background: var(--main-bg-color-later);
+  }
+
+  /* ═══════════════════════════════════════════
+     DSG MODE inner container
+     ═══════════════════════════════════════════ */
+  .hero-dsg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    transition: all 0.5s ease;
+  }
+
+  /* Blurry state when user scrolls past 30vh */
+  .hero-dsg.blurry .profile-photo {
+    opacity: 0;
+  }
+  .hero-dsg.blurry .hero-titles {
+    opacity: 0;
+  }
+  .hero-dsg.blurry .floating-icon {
+    opacity: 0.4;
+  }
+  .hero-dsg.blurry .hero-bottom {
+    opacity: 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     PROFILE PHOTO
+     ═══════════════════════════════════════════ */
+  .profile-photo {
+    position: absolute;
+    height: 95%;
+    width: auto;
+    right: 90px;
+    bottom: 0;
+    object-fit: contain;
+    z-index: 4;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    user-select: none;
+  }
+
+  /* ═══════════════════════════════════════════
+     FLOATING ICONS TRAY
+     ═══════════════════════════════════════════ */
+  .floating-tray {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .floating-icon {
+    width: 192px;
+    height: 192px;
+    position: absolute;
+    bottom: -10vh;
+    will-change: transform;
+    animation: bubble-float var(--dur, 15s) linear infinite var(--dd, 0s);
+    transition: opacity 0.5s ease;
+  }
+
+  /* Single shared keyframe — scale injected via --s CSS var */
+  @keyframes bubble-float {
+    0% {
+      bottom: -10vh;
+      transform: scale(var(--s, 1)) translateX(0px);
+    }
+    10% {
+      transform: scale(var(--s, 1)) translateX(8px);
+    }
+    25% {
+      bottom: 20vh;
+      transform: scale(var(--s, 1)) translateX(-12px);
+    }
+    40% {
+      transform: scale(var(--s, 1)) translateX(15px);
+    }
+    60% {
+      bottom: 60vh;
+      transform: scale(var(--s, 1)) translateX(-8px);
+    }
+    75% {
+      transform: scale(var(--s, 1)) translateX(10px);
+    }
+    90% {
+      bottom: 100vh;
+      transform: scale(var(--s, 1)) translateX(-5px);
+    }
+    100% {
+      bottom: 120vh;
+      transform: scale(var(--s, 1)) translateX(0px);
+    }
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO TITLES
+     ═══════════════════════════════════════════ */
+  .hero-titles {
+    position: absolute;
+    top: 0;
+    left: 180px;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 5;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+  }
+
+  .f-hello {
+    color: var(--text-light);
+    font-size: clamp(36px, 7vw, 70px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  .f-name {
+    color: var(--text-light);
+    font-size: clamp(36px, 7vw, 70px);
+    font-weight: 100;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  /* Terminal-style subtitle badge */
+  .f-subtitle {
+    display: block;
+    width: fit-content;
+    font-size: clamp(14px, 2.2vw, 30px);
+    text-transform: uppercase;
+    transform: translate(-40px, -12px) rotateZ(-3deg);
+    background: #2d2d2d;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.3),
+      0 2px 4px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Shimmer sweep */
+  .f-subtitle::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 -100%;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    animation: shimmer-sweep 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer-sweep {
+    0% {
+      left: -100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  .f-subtitle .word-1 {
+    color: #00ff00;
+  }
+  .f-subtitle .word-2 {
+    color: #ff00ff;
+  }
+  .f-subtitle .word-3 {
+    color: #d3d3d3;
+  }
+
+  /* Arrow between subtitle and addon */
+  .titles-arrow {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 240px;
+    bottom: -16px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Addon subtitle */
+  .f-subtitle-addon {
+    font-size: clamp(12px, 1.8vw, 24px) !important;
+    transform: translate(360px, 2px) rotateZ(2deg) !important;
+  }
+
+  .f-subtitle-addon .word-3 {
+    font-size: clamp(10px, 1.4vw, 18px);
+  }
+
+  /* ═══════════════════════════════════════════
+     HERO BOTTOM (CTA + socials)
+     ═══════════════════════════════════════════ */
+  .hero-bottom {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    padding: 0 180px 0 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+    transition: opacity 0.5s ease;
+    pointer-events: auto;
+  }
+
+  .scroll-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(8px);
+    transition:
+      background 0.25s,
+      border-color 0.25s,
+      transform 0.25s;
+  }
+
+  .scroll-cta:hover {
+    background: rgba(232, 4, 175, 0.15);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .cta-arrow {
+    animation: bounce-down 1.6s ease-in-out infinite;
+    display: inline-block;
+  }
+
+  @keyframes bounce-down {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+
+  .hero-socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    text-decoration: none;
+    transition:
+      background 0.25s,
+      border-color 0.25s,
+      transform 0.25s;
+  }
+
+  .hero-socials a:hover {
+    background: rgba(232, 4, 175, 0.2);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* ═══════════════════════════════════════════
+     MOBILE
+     ═══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+    .hero-titles {
+      left: 20px;
+      margin-top: 120px;
+    }
+
+    .profile-photo {
+      right: -180px;
+      height: 80%;
+      opacity: 0.18;
+    }
+
+    .f-subtitle {
+      font-size: clamp(12px, 4vw, 20px) !important;
+      transform: translate(0, -15px) rotateZ(-3deg) !important;
+      max-width: calc(100vw - 60px);
+      white-space: normal;
+      letter-spacing: 1px;
+    }
+
+    .f-subtitle-addon {
+      font-size: clamp(10px, 3.5vw, 18px) !important;
+      transform: translate(40px, 8px) rotateZ(2deg) !important;
+    }
+
+    .titles-arrow {
+      right: 120px;
+      bottom: -8px;
+      width: 70px;
+      height: 70px;
+    }
+
+    .hero-bottom {
+      padding: 0 20px;
+      flex-direction: column-reverse;
+      gap: 16px;
+      bottom: 30px;
+    }
+
+    .floating-icon {
+      width: 128px;
+      height: 128px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .f-subtitle {
+      transform: translate(0, -10px) rotateZ(-3deg) !important;
+    }
+  }
+</style>
+
+<script>
+  const heroHeader = document.getElementById("hero-header")!;
+  const heroDsg = document.getElementById("hero-dsg")!;
+  const threshold = () => window.innerHeight * 0.3;
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (window.scrollY > threshold()) {
+        heroDsg.classList.add("blurry");
+        heroHeader.classList.add("high-contrast");
+      } else {
+        heroDsg.classList.remove("blurry");
+        heroHeader.classList.remove("high-contrast");
+      }
+    },
+    { passive: true },
+  );
+</script>

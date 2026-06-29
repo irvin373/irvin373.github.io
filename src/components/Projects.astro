@@ -1,0 +1,322 @@
+---
+const projects = [
+  {
+    title:   'MediPlant AI',
+    subtitle: 'Deep Learning · Thesis Project',
+    desc:    'Engineered a convolutional neural network for automatic classification of medicinal plant images. Trained on a custom dataset achieving 90% accuracy using artificial neural networks.',
+    tags:    ['Python', 'TensorFlow', 'CNN', 'OpenCV', 'Scikit-learn'],
+    icon:    'brain-circuit',
+    accent:  'var(--accent-green)',
+    stat:    { value: '90%', label: 'Accuracy' },
+    type:    'AI / ML Research',
+    year:    '2024',
+  },
+  {
+    title:   'Crypto Wallet Module',
+    subtitle: 'Android · Kotlin · Fintech',
+    desc:    'Native Android crypto wallet with QR-based send/receive flows, real-time balance display, and transaction history. Built with modern Android architecture patterns using Jetpack Compose.',
+    tags:    ['Android', 'Kotlin', 'Jetpack Compose', 'CameraX', 'REST API'],
+    icon:    'wallet',
+    accent:  '#7F52FF',
+    stat:    { value: '200+', label: 'Users' },
+    type:    'Mobile · Android',
+    year:    '2023',
+  },
+  {
+    title:   'Delivery Management Platform',
+    subtitle: 'React · React Native · Logistics',
+    desc:    'Full-stack logistics platform for multi-country delivery coordination. Includes driver task assignment, real-time map tracking, product-picking flows, and management dashboards.',
+    tags:    ['React', 'React Native', 'Google Maps', 'TypeScript', 'Deeplinks'],
+    icon:    'truck',
+    accent:  'var(--accent-cyan)',
+    stat:    { value: '7', label: 'Countries' },
+    type:    'Web + Mobile',
+    year:    '2024–2025',
+  },
+];
+---
+
+<section id="projects" class="section-wrapper proj-section">
+  <div class="section-inner">
+    <p class="section-label">What I've built</p>
+    <h2 class="section-title">Featured <em>Projects</em></h2>
+
+    <div class="projects-grid">
+      {projects.map(p => (
+        <div class="project-card glass-card">
+          <!-- Top accent bar -->
+          <div class="card-accent-bar" style={`background:${p.accent};`}></div>
+
+          <div class="card-body">
+            <!-- Icon + type -->
+            <div class="card-top-row">
+              <div class="project-icon-wrap" style={`border-color:${p.accent}33;background:${p.accent}11;`}>
+                <i data-lucide={p.icon} style={`width:22px;height:22px;color:${p.accent};`}></i>
+              </div>
+              <div class="project-meta">
+                <span class="project-type">{p.type}</span>
+                <span class="project-year">{p.year}</span>
+              </div>
+            </div>
+
+            <!-- Title + stat -->
+            <div class="project-title-row">
+              <div>
+                <h3 class="project-title">{p.title}</h3>
+                <p class="project-subtitle">{p.subtitle}</p>
+              </div>
+              <div class="project-stat" style={`border-color:${p.accent}33;`}>
+                <span class="stat-value" style={`color:${p.accent};`}>{p.stat.value}</span>
+                <span class="stat-label">{p.stat.label}</span>
+              </div>
+            </div>
+
+            <p class="project-desc">{p.desc}</p>
+
+            <div class="tags-row">
+              {p.tags.map(t => (
+                <span class="tag">{t}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Education card -->
+    <div class="edu-card glass-card">
+      <div class="edu-inner">
+        <div class="edu-icon">
+          <i data-lucide="graduation-cap" style="width:28px;height:28px;color:var(--accent);"></i>
+        </div>
+        <div class="edu-body">
+          <p class="section-label" style="margin-bottom:4px;">Education</p>
+          <h3 class="edu-title">Informatics Engineer</h3>
+          <p class="edu-school">Universidad Mayor de San Simón · Cochabamba, Bolivia</p>
+          <p class="edu-period">Graduated April 2024</p>
+          <p class="edu-thesis">
+            <strong>Thesis:</strong> Engineered a deep learning model for automatic classification of medicinal plant images,
+            achieving 90% accuracy using artificial neural networks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .proj-section {
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── Grid ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  /* ── Card ── */
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .card-accent-bar {
+    height: 3px;
+    width: 100%;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    flex: 1;
+  }
+
+  /* Top row: icon + meta */
+  .card-top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .project-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .project-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+  }
+
+  .project-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+  }
+
+  .project-year {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* Title + stat */
+  .project-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .project-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+
+  .project-subtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .project-stat {
+    border: 1px solid;
+    border-radius: 8px;
+    padding: 8px 12px;
+    text-align: center;
+    flex-shrink: 0;
+    min-width: 56px;
+  }
+
+  .stat-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* Desc */
+  .project-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  /* Tags */
+  .tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: auto;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 3px 9px;
+    background: rgba(232, 4, 175, 0.07);
+    border: 1px solid rgba(232, 4, 175, 0.2);
+    border-radius: 4px;
+    color: var(--accent);
+  }
+
+  /* ── Education card ── */
+  .edu-card {
+    margin-top: 24px;
+    padding: 28px 32px;
+  }
+
+  .edu-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .edu-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(232, 4, 175, 0.1);
+    border: 1px solid rgba(232, 4, 175, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .edu-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 4px;
+  }
+
+  .edu-school {
+    font-size: 14px;
+    color: var(--accent-green);
+    margin-bottom: 4px;
+  }
+
+  .edu-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .edu-thesis {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .edu-thesis strong {
+    color: var(--text);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .edu-inner {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+</style>
