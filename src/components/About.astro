@@ -1,34 +1,66 @@
 ---
 const skills = [
-  { name: 'React Native', img: '/assets/skills/react.png',       color: '#61DAFB' },
-  { name: 'React',        img: '/assets/skills/react.png',       color: '#61DAFB' },
-  { name: 'TypeScript',   img: '/assets/skills/typescript.png',  color: '#3178C6' },
-  { name: 'JavaScript',   img: null,                             color: '#F7DF1E' },
-  { name: 'Android',      img: null,                             color: '#3DDC84' },
-  { name: 'Kotlin',       img: null,                             color: '#7F52FF' },
-  { name: 'Python',       img: null,                             color: '#3776AB' },
-  { name: 'Ruby',         img: null,                             color: '#CC342D' },
-  { name: 'Figma',        img: null,                             color: '#F24E1E' },
-  { name: 'Git',          img: '/assets/skills/github.png',      color: '#F05032' },
+  { name: "React Native", img: "/assets/skills/react.png", color: "#61DAFB" },
+  { name: "React", img: "/assets/skills/react.png", color: "#61DAFB" },
+  {
+    name: "TypeScript",
+    img: "/assets/skills/typescript.png",
+    color: "#3178C6",
+  },
+  { name: "JavaScript", img: "/assets/skills/js.jpg", color: "#F7DF1E" },
+  { name: "Android", img: "/assets/skills/android.png", color: "#3DDC84" },
+  { name: "Kotlin", img: "/assets/skills/kotlin.png", color: "#7F52FF" },
+  { name: "Git", img: "/assets/skills/github.png", color: "#F05032" },
 ];
 
 const interests = [
-  { label: 'AI Models',        icon: 'brain-circuit',   desc: 'Cloud & local LLMs — Gemma, Claude, Gemini' },
-  { label: 'XR Web',          icon: 'glasses',          desc: 'WebXR, immersive 3D browser experiences' },
-  { label: 'Lottie / Motion', icon: 'sparkles',         desc: 'Expressive UI animations & micro-interactions' },
-  { label: 'Video Games',     icon: 'gamepad-2',        desc: 'Avid gamer, game mechanics inspire my UX thinking' },
+  {
+    label: "AI Models",
+    icon: "brain-circuit",
+    desc: "Cloud & local LLMs — Gemma, Claude, Gemini",
+  },
+  {
+    label: "XR Web",
+    icon: "glasses",
+    desc: "WebXR, immersive 3D browser experiences",
+  },
+  {
+    label: "Lottie / Figma",
+    icon: "sparkles",
+    desc: "Expressive UI animations & micro-interactions",
+  },
+  {
+    label: "Video Games",
+    icon: "gamepad-2",
+    desc: "Avid gamer, game mechanics inspire my UX thinking",
+  },
 ];
 
 const certifications = [
-  { title: 'Android Development', issuer: 'Meta · Coursera', icon: 'award' },
-  { title: 'React Native',        issuer: 'Meta · Coursera', icon: 'award' },
-  { title: 'GDG Organizer',       issuer: 'Google Developer Group · Cochabamba', icon: 'users' },
+  {
+    title: "Meta Android Developer",
+    issuer: "Meta · Coursera · 12 Courses",
+    icon: "award",
+    link: "https://coursera.org/share/b0acb79ba54621c21889ea7901023fa5",
+  },
+  {
+    title: "Meta React Native Developer",
+    issuer: "Meta · Coursera · 8 Courses",
+    icon: "award",
+    link: "https://coursera.org/share/b954704ac1c764ca9841d687f4ddec78",
+  },
+  {
+    title: "GDG Organizer",
+    issuer: "Google Developer Group · Cochabamba",
+    icon: "users",
+  },
 ];
+
+const yearsExp = new Date().getFullYear() - 2018;
 ---
 
 <section id="about" class="section-wrapper">
   <div class="section-inner about-grid">
-
     <!-- ── Left column: bio ── -->
     <div class="about-bio">
       <p class="section-label">Who I am</p>
@@ -36,40 +68,46 @@ const certifications = [
 
       <div class="bio-text">
         <p>
-          From <strong>Cochabamba, Bolivia</strong>, I'm a Senior Mobile &amp; Frontend Engineer
-          with <strong>8+ years</strong> of experience shipping products used by millions —
-          from fintech wallets and delivery platforms to enterprise mobile apps.
+          From <strong>Cochabamba, Bolivia</strong>, I'm a Senior Mobile &amp;
+          Frontend Engineer with <strong>{yearsExp}+ years</strong> of experience
+          shipping products — from fintech wallets and delivery platforms to enterprise
+          mobile apps.
         </p>
         <p>
-          My stack spans the full mobile spectrum: <strong>React Native</strong> for
-          cross-platform reach, <strong>Android / Kotlin</strong> for native depth, and
-          <strong>React + TypeScript</strong> on the web. I care deeply about performance,
-          clean architecture, and UX that feels effortless.
+          I specialize in cross-platform mobile development with <strong
+            >React Native</strong
+          >, native <strong>Android</strong> development with <strong
+            >Kotlin</strong
+          >, and modern web applications using <strong
+            >React + TypeScript</strong
+          >. My focus always centers on performance, clean architecture, and
+          crafting seamless user experiences.
         </p>
         <p>
-          Currently at <strong>Plata Fintech (US)</strong>, I'm embedding AI coding tools
-          like Claude Code into our engineering workflow — converting Linear tickets into
-          structured spec prompts and reducing ticket-to-PR time by <strong>~30%</strong>.
-          I'm fascinated by how AI is reshaping how we build software.
-        </p>
-        <p>
-          I hold a degree in <strong>Informatics Engineering</strong> from UMSS, where my
-          thesis achieved <strong>90% accuracy</strong> in classifying medicinal plants using
-          deep learning. That curiosity for ML never left.
+          I hold a degree in <strong>Informatics Engineering</strong> from UMSS, where
+          my thesis achieved <strong>90% accuracy</strong> in classifying medicinal
+          plants using deep learning. That curiosity for ML never left.
         </p>
       </div>
 
       <!-- Certs & GDG -->
       <div class="certs-row">
-        {certifications.map(cert => (
-          <div class="cert-card">
-            <i data-lucide={cert.icon} class="cert-icon"></i>
-            <div>
-              <p class="cert-title">{cert.title}</p>
-              <p class="cert-issuer">{cert.issuer}</p>
+        {
+          certifications.map((cert) => (
+            <div class="cert-card">
+              <i data-lucide={cert.icon} class="cert-icon" />
+              <div>
+                <p class="cert-title">{cert.title}</p>
+                <p class="cert-issuer">{cert.issuer}</p>
+              </div>
+              {cert.link && (
+                <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                  <i data-lucide="arrow-right" class="cert-link-icon" />
+                </a>
+              )}
             </div>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
 
@@ -80,15 +118,18 @@ const certifications = [
         <p class="section-label">Tech stack</p>
       </div>
       <div class="skills-grid">
-        {skills.map(skill => (
-          <div class="skill-pill">
-            {skill.img
-              ? <img src={skill.img} alt={skill.name} width="20" height="20" />
-              : <span class="skill-dot" style={`background:${skill.color};`}></span>
-            }
-            <span>{skill.name}</span>
-          </div>
-        ))}
+        {
+          skills.map((skill) => (
+            <div class="skill-pill">
+              {skill.img ? (
+                <img src={skill.img} alt={skill.name} width="20" height="20" />
+              ) : (
+                <span class="skill-dot" style={`background:${skill.color};`} />
+              )}
+              <span>{skill.name}</span>
+            </div>
+          ))
+        }
       </div>
 
       <!-- Languages -->
@@ -108,16 +149,17 @@ const certifications = [
       <!-- Interests -->
       <p class="section-label" style="margin-top:40px;">Interests</p>
       <div class="interests-grid">
-        {interests.map(item => (
-          <div class="interest-card">
-            <i data-lucide={item.icon} class="interest-icon"></i>
-            <p class="interest-label">{item.label}</p>
-            <p class="interest-desc">{item.desc}</p>
-          </div>
-        ))}
+        {
+          interests.map((item) => (
+            <div class="interest-card">
+              <i data-lucide={item.icon} class="interest-icon" />
+              <p class="interest-label">{item.label}</p>
+              <p class="interest-desc">{item.desc}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
-
   </div>
 </section>
 
@@ -210,7 +252,10 @@ const certifications = [
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
-    transition: border-color 0.25s, background 0.25s, transform 0.2s;
+    transition:
+      border-color 0.25s,
+      background 0.25s,
+      transform 0.2s;
     cursor: default;
   }
 
@@ -249,7 +294,9 @@ const certifications = [
     font-size: 13px;
   }
 
-  .lang-flag { font-size: 16px; }
+  .lang-flag {
+    font-size: 16px;
+  }
 
   .lang-name {
     color: var(--text);
@@ -257,7 +304,7 @@ const certifications = [
   }
 
   .lang-level {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 11px;
     color: var(--accent);
     background: rgba(232, 4, 175, 0.1);
@@ -278,7 +325,9 @@ const certifications = [
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    transition: border-color 0.25s, transform 0.25s;
+    transition:
+      border-color 0.25s,
+      transform 0.25s;
   }
 
   .interest-card:hover {
