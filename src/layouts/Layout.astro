@@ -5,8 +5,8 @@ export interface Props {
 }
 
 const {
-  title = 'Irvin Cossio — Senior Mobile & Frontend Engineer',
-  description = 'Senior Mobile & Frontend Engineer specializing in React Native, React, and TypeScript. 8+ years building products for millions of users across fintech, logistics, and enterprise.',
+  title = "Irvin Cossio — Senior Mobile & Frontend Engineer",
+  description = "Senior Mobile & Frontend Engineer specializing in React Native, React, and TypeScript. 8+ years building products for millions of users across fintech, logistics, and enterprise.",
 } = Astro.props;
 ---
 
@@ -30,17 +30,17 @@ const {
     <!-- Tailwind CDN config must come before the CDN script -->
     <script is:inline>
       tailwind.config = {
-        darkMode: 'class',
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
-              accent: '#e804af',
-              'accent-green': '#00ff88',
-              'accent-cyan': '#00d4ff',
+              accent: "#be028f",
+              "accent-green": "#00ff88",
+              "accent-cyan": "#00d4ff",
             },
             fontFamily: {
-              mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-              sans: ['Inter', 'system-ui', 'sans-serif'],
+              mono: ["JetBrains Mono", "Fira Code", "monospace"],
+              sans: ["Inter", "system-ui", "sans-serif"],
             },
           },
         },
@@ -49,11 +49,13 @@ const {
     <script is:inline src="https://cdn.tailwindcss.com"></script>
 
     <!-- Lucide Icons -->
-    <script is:inline src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script
+      is:inline
+      src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
     <style is:global>
       :root {
-        --accent: #e804af;
+        --accent: #be028f;
         --accent-green: #00ff88;
         --accent-cyan: #00d4ff;
         --bg: #080808;
@@ -86,7 +88,7 @@ const {
       body {
         background-color: var(--bg);
         color: var(--text);
-        font-family: 'Inter', system-ui, sans-serif;
+        font-family: "Inter", system-ui, sans-serif;
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
       }
@@ -121,7 +123,7 @@ const {
       }
 
       .section-label {
-        font-family: 'JetBrains Mono', monospace;
+        font-family: "JetBrains Mono", monospace;
         font-size: 12px;
         font-weight: 600;
         letter-spacing: 3px;
@@ -232,8 +234,8 @@ const {
     <slot />
 
     <script is:inline>
-      document.addEventListener('DOMContentLoaded', () => {
-        if (typeof lucide !== 'undefined') lucide.createIcons();
+      document.addEventListener("DOMContentLoaded", () => {
+        if (typeof lucide !== "undefined") lucide.createIcons();
       });
     </script>
   </body>

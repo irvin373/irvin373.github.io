@@ -10,28 +10,19 @@ const projects = [
     stat:    { value: '90%', label: 'Accuracy' },
     type:    'AI / ML Research',
     year:    '2024',
+    link: 'https://github.com/irvin373/PlantTuquypac',
   },
   {
-    title:   'Crypto Wallet Module',
-    subtitle: 'Android · Kotlin · Fintech',
-    desc:    'Native Android crypto wallet with QR-based send/receive flows, real-time balance display, and transaction history. Built with modern Android architecture patterns using Jetpack Compose.',
-    tags:    ['Android', 'Kotlin', 'Jetpack Compose', 'CameraX', 'REST API'],
-    icon:    'wallet',
-    accent:  '#7F52FF',
-    stat:    { value: '200+', label: 'Users' },
-    type:    'Mobile · Android',
-    year:    '2023',
-  },
-  {
-    title:   'Delivery Management Platform',
-    subtitle: 'React · React Native · Logistics',
-    desc:    'Full-stack logistics platform for multi-country delivery coordination. Includes driver task assignment, real-time map tracking, product-picking flows, and management dashboards.',
-    tags:    ['React', 'React Native', 'Google Maps', 'TypeScript', 'Deeplinks'],
-    icon:    'truck',
-    accent:  'var(--accent-cyan)',
-    stat:    { value: '7', label: 'Countries' },
-    type:    'Web + Mobile',
-    year:    '2024–2025',
+    title:   'Pokemon Playeable Gemma 4',
+    subtitle: "AI · Gemma 4 · JS",
+    desc: "Playable pokemon game with RL and RNN using AI .",
+    tags: ["ReactJS", "Gemma 4", "RNN", "RL"],
+    icon: "gamepad",
+    accent: "var(--accent-cyan)",
+    stat: { value: "AI", label: "Ollama" },
+    type: "Web + AI",
+    year: "2026",
+    link: 'https://github.com/irvin373/pokemonGBAGemmaPlay',
   },
 ];
 ---
@@ -39,7 +30,7 @@ const projects = [
 <section id="projects" class="section-wrapper proj-section">
   <div class="section-inner">
     <p class="section-label">What I've built</p>
-    <h2 class="section-title">Featured <em>Projects</em></h2>
+    <h2 class="section-title">Open Source <em>Projects</em></h2>
 
     <div class="projects-grid">
       {projects.map(p => (
@@ -62,7 +53,10 @@ const projects = [
             <!-- Title + stat -->
             <div class="project-title-row">
               <div>
-                <h3 class="project-title">{p.title}</h3>
+                <a class="card-top-row" href={p.link} target="_blank" rel="noopener noreferrer">
+                  <h3 class="project-title">{p.title}</h3>
+                  <i data-lucide="arrow-right" class="cert-link-icon" />
+                </a>
                 <p class="project-subtitle">{p.subtitle}</p>
               </div>
               <div class="project-stat" style={`border-color:${p.accent}33;`}>
