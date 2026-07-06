@@ -27,27 +27,6 @@ const {
       rel="stylesheet"
     />
 
-    <!-- Tailwind CDN config must come before the CDN script -->
-    <script is:inline>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              accent: "#be028f",
-              "accent-green": "#00ff88",
-              "accent-cyan": "#00d4ff",
-            },
-            fontFamily: {
-              mono: ["JetBrains Mono", "Fira Code", "monospace"],
-              sans: ["Inter", "system-ui", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <script is:inline src="https://cdn.tailwindcss.com"></script>
-
     <!-- Lucide Icons -->
     <script
       is:inline
@@ -230,7 +209,7 @@ const {
       }
     </style>
   </head>
-  <body class="dark">
+  <body>
     <slot />
 
     <script is:inline>

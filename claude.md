@@ -17,8 +17,7 @@ No test runner, no linter configured.
 Single-page Astro v7 portfolio for Irvin Cossio. One route: `src/pages/index.astro` composes six section components in order: `Nav → Hero → About → Experience → Projects → Contact`, all wrapped in `src/layouts/Layout.astro`.
 
 **Styling approach — critical detail:**
-- Tailwind is loaded via **CDN** (`<script is:inline src="https://cdn.tailwindcss.com">`), not as an Astro integration. Tailwind config (custom colors, fonts) lives in a `<script is:inline>` block in `Layout.astro` that must appear *before* the CDN script.
-- All component styles use `<style is:global>` (not scoped). CSS custom properties defined in `Layout.astro` are the design tokens; use them everywhere.
+- No Tailwind — all styling is plain custom CSS. All component styles use `<style is:global>` (not scoped). CSS custom properties defined in `Layout.astro` are the design tokens; use them everywhere.
 - Lucide icons are loaded via CDN (`unpkg.com/lucide`). Icons render via `<i data-lucide="icon-name">` + a `lucide.createIcons()` call on `DOMContentLoaded` in Layout.
 
 **Design tokens** (defined in `Layout.astro` `:root`):

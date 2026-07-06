@@ -7,7 +7,7 @@ Personal portfolio site for Irvin Cossio, Senior Mobile & Frontend Engineer. Bui
 ## Stack
 
 - [Astro v7](https://astro.build) — static site generator
-- Tailwind CSS via CDN (not Astro integration)
+- Plain custom CSS (no framework)
 - Lucide icons via CDN
 - Inter + JetBrains Mono from Google Fonts
 
@@ -24,7 +24,7 @@ npm run preview  # serve dist/ locally
 
 ```
 src/
-  layouts/Layout.astro      # shell: fonts, Tailwind CDN, global CSS tokens, Lucide init
+  layouts/Layout.astro      # shell: fonts, global CSS tokens, Lucide init
   pages/index.astro         # single route — composes all sections
   components/
     Nav.astro
@@ -46,7 +46,6 @@ assets/                     # static files (public/assets symlinks here)
 - Design tokens defined as CSS custom properties in `Layout.astro :root`. Use `var(--token)` everywhere, not hardcoded hex values.
 - Accent colors: `--accent` `#e804af`, `--accent-green` `#00ff88`, `--accent-cyan` `#00d4ff`.
 - All styles use `<style is:global>` — no scoped CSS.
-- Tailwind config block in `Layout.astro` **must appear before** the Tailwind CDN `<script>` tag.
 
 ## Deployment
 
