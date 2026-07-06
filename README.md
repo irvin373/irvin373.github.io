@@ -1,12 +1,12 @@
 # Irvin Cossio — Portfolio
 
-Personal portfolio site for Irvin Cossio, Senior Mobile & Frontend Engineer. Built with Astro v4, deployed to GitHub Pages.
+Personal portfolio site for Irvin Cossio, Senior Mobile & Frontend Engineer. Built with Astro v7, deployed to GitHub Pages.
 
 **Live:** https://irvin373.github.io
 
 ## Stack
 
-- [Astro v4](https://astro.build) — static site generator
+- [Astro v7](https://astro.build) — static site generator
 - Tailwind CSS via CDN (not Astro integration)
 - Lucide icons via CDN
 - Inter + JetBrains Mono from Google Fonts

@@ -14,7 +14,7 @@ No test runner, no linter configured.
 
 ## Architecture
 
-Single-page Astro v4 portfolio for Irvin Cossio. One route: `src/pages/index.astro` composes six section components in order: `Nav → Hero → About → Experience → Projects → Contact`, all wrapped in `src/layouts/Layout.astro`.
+Single-page Astro v7 portfolio for Irvin Cossio. One route: `src/pages/index.astro` composes six section components in order: `Nav → Hero → About → Experience → Projects → Contact`, all wrapped in `src/layouts/Layout.astro`.
 
 **Styling approach — critical detail:**
 - Tailwind is loaded via **CDN** (`<script is:inline src="https://cdn.tailwindcss.com">`), not as an Astro integration. Tailwind config (custom colors, fonts) lives in a `<script is:inline>` block in `Layout.astro` that must appear *before* the CDN script.
@@ -49,5 +49,3 @@ Single-page Astro v4 portfolio for Irvin Cossio. One route: `src/pages/index.ast
 
 **Deployment:**
 - GitHub Pages at `https://irvin373.github.io` via `npm run build` → `dist/`.
-
-**Legacy code:** `home/` directory contains the original Angular source used as reference when building the Hero. It is not part of the Astro build.
