@@ -1,12 +1,35 @@
 ---
 const jobs = [
   {
+    company: "Reellove (short-term project)",
+    role: "Fullstack Senior Software Engineer",
+    period: "Aug 2026 – Nov 2026",
+    location: "United States · Remote",
+    logo: "/assets/xp/reellove.png",
+    current: false,
+    bullets: [
+      "Enabled the team to manage media content end-to-end, as measured by support for 8 video processing workflows, by building an Admin Dashboard in Next.js with FFmpeg integration for video processing, metadata extraction, and multi-quality video generation.",
+      "Enabled scalable storage for app media, processed and stored reliably by integrating S3 and PostgreSQL via Supabase for image and video storage.",
+      "Improved mobile app performance, as measured by 50% faster query response times, by optimizing Supabase queries using PostgreSQL Views and query-level optimizations.",
+      "Ensured reliable, scalable application delivery and deployments, reducing cost by 60% by owning the deployment process on Google Cloud Platform (GCP).",
+    ],
+    tags: [
+      "Next.js",
+      "Supabase",
+      "Postgres",
+      "React Native",
+      "TypeScript",
+      "Google Cloud Platform",
+      "ADK",
+    ],
+  },
+  {
     company: "Plata LLC",
     role: "Mobile / Frontend Senior Software Engineer",
-    period: "Sep 2025 — Present",
+    period: "Sep 2025 — Jun 2026",
     location: "United States · Remote",
     logo: "/assets/xp/plata-w.png",
-    current: true,
+    current: false,
     bullets: [
       "Maintained code quality across React Native & React JS codebases by triaging and resolving bugs via Linear for a fintech platform.",
       "Implemented Wallet and WhatsApp Native integrations into a React Native fintech app serving 200+ users.",
@@ -40,7 +63,7 @@ const jobs = [
     company: "Jalasoft",
     role: "Mobile Software Engineer",
     period: "Sep 2022 — Jan 2025",
-    location: "Cochabamba, Bolivia",
+    location: "Cochabamba · Bolivia",
     logo: "/assets/xp/jalasoft-w.png",
     current: false,
     bullets: [
@@ -69,7 +92,7 @@ const jobs = [
     company: "Freelance",
     role: "FullStack Software Engineer",
     period: "Jan 2017 — Aug 2017",
-    location: "Cochabamba, Bolivia",
+    location: "Cochabamba · Bolivia",
     logo: null,
     current: false,
     bullets: [
@@ -85,7 +108,7 @@ const gdg = {
   company: "Google Developer Group Cochabamba",
   role: "Organizer & Volunteer",
   period: "Jul 2022 — Present",
-  location: "Cochabamba, Bolivia",
+  location: "Cochabamba · Bolivia",
   logo: "/assets/xp/gdg-w.png",
   bullets: [
     "Organized community tech events, growing local developer engagement in Cochabamba.",
@@ -97,67 +120,61 @@ const gdg = {
 <section id="experience" class="section-wrapper exp-section">
   <div class="section-inner">
     <p class="section-label">Where I've worked</p>
-    <h2 class="section-title">Work <em>Experience</em></h2>
+    <h2 class="section-title">
+      Work <em>Experience</em>
+    </h2>
 
     <!-- Timeline -->
     <div class="timeline">
-      {
-        jobs.map((job, i) => (
-          <div class={`timeline-item ${i % 2 === 0 ? "left" : "right"}`}>
-            <div class="timeline-dot" class:list={[{ current: job.current }]} />
-            <div class="timeline-card glass-card">
-              <div class="card-header">
-                <div class="card-meta">
-                  <div class="company-row">
-                    {job.logo ? (
-                      <img
-                        src={job.logo}
-                        alt={job.company}
-                        class="company-logo"
-                      />
-                    ) : (
-                      <span class="company-initial">{job.company[0]}</span>
-                    )}
-                  </div>
-                  <h3 class="company-name">{job.company}</h3>
-                  <p class="job-role">{job.role}</p>
-                  <div class="job-info">
-                    <span class="job-period">
-                      <i
-                        data-lucide="calendar"
-                        style="width:13px;height:13px;"
-                      />
-                      {job.period}
-                    </span>
-                    <span class="job-location">
-                      <i
-                        data-lucide="map-pin"
-                        style="width:13px;height:13px;"
-                      />
-                      {job.location}
-                    </span>
-                  </div>
+      {jobs.map((job, i) => (
+        <div class={`timeline-item ${i % 2 === 0 ? "left" : "right"}`}>
+          <div class="timeline-dot" class:list={[{ current: job.current }]} />
+          <div class="timeline-card glass-card">
+            <div class="card-header">
+              <div class="card-meta">
+                <div class="company-row">
+                  {job.logo ? (
+                    <img
+                      src={job.logo}
+                      alt={job.company}
+                      class="company-logo"
+                    />
+                  ) : (
+                    <span class="company-initial">{job.company[0]}</span>
+                  )}
+                </div>
+                <h3 class="company-name">{job.company}</h3>
+                <p class="job-role">{job.role}</p>
+                <div class="job-info">
+                  <span class="job-period">
+                    <i data-lucide="calendar" style="width:13px;height:13px;" />
+                    {job.period}
+                  </span>
+                  <span class="job-location">
+                    <i data-lucide="map-pin" style="width:13px;height:13px;" />
+                    {job.location}
+                  </span>
                 </div>
               </div>
+            </div>
 
-              <ul class="bullets">
-                {job.bullets.map((b) => (
-                  <li>
-                    <span class="bullet-dot" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
+            <ul class="bullets">
+              {job.bullets.map((b) => (
+                <li>
+                  <span class="bullet-dot" />
+                  {b}
+                </li>
+              ))}
+            </ul>
 
-              <div class="tags-row">
-                {job.tags.map((t) => (
-                  <span class="tag">{t}</span>
-                ))}
-              </div>
+            <div class="tags-row">
+              {job.tags.map((t) => (
+                <span class="tag">{t}</span>
+              ))}
             </div>
           </div>
-        ))
-      }
+        </div>
+      ))}
 
       <!-- Center line -->
       <div class="timeline-line" aria-hidden="true"></div>
@@ -183,14 +200,12 @@ const gdg = {
               </span>
             </div>
             <ul class="bullets" style="margin-top:16px;">
-              {
-                gdg.bullets.map((b) => (
-                  <li>
-                    <span class="bullet-dot" />
-                    {b}
-                  </li>
-                ))
-              }
+              {gdg.bullets.map((b) => (
+                <li>
+                  <span class="bullet-dot" />
+                  {b}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -216,7 +231,7 @@ const gdg = {
   /* Vertical center line */
   .timeline-line {
     grid-column: 2;
-    grid-row: 1 / -1;
+    grid-row: 4 / -1;
     width: 2px;
     background: linear-gradient(
       to bottom,
