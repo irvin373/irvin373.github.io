@@ -2,6 +2,7 @@
   "name": "irvin-cossio-portfolio",
   "type": "module",
   "version": "1.0.0",
+  "packageManager": "pnpm@12.18.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
