@@ -149,8 +149,7 @@ const icons = [
 <div
   id="home"
   style="height:100vh;position:relative;z-index:2;pointer-events:none;"
->
-</div>
+></div>
 
 <!-- Rotating gradient — lives behind everything -->
 <div class="anim-gradient" aria-hidden="true"></div>
@@ -168,34 +167,30 @@ const icons = [
 
     <!-- Floating icons tray (full viewport, behind titles) -->
     <div class="floating-tray" aria-hidden="true">
-      {
-        icons.map((ic) => (
-          <img
-            class="floating-icon"
-            src={`/assets/svg/${ic.file}.svg`}
-            alt=""
-            aria-hidden="true"
-            style={[
-              `left:${ic.left}%`,
-              `--s:${ic.s}`,
-              `--dur:${ic.dur}s`,
-              `--dd:-${ic.delay}s`,
-              `filter:blur(${ic.blur}px) brightness(${ic.bright})`,
-              `z-index:${ic.z}`,
-            ].join(";")}
-          />
-        ))
-      }
+      {icons.map((ic) => (
+        <img
+          class="floating-icon"
+          src={`/assets/svg/${ic.file}.svg`}
+          alt=""
+          aria-hidden="true"
+          style={[
+            `left:${ic.left}%`,
+            `--s:${ic.s}`,
+            `--dur:${ic.dur}s`,
+            `--dd:-${ic.delay}s`,
+            `filter:blur(${ic.blur}px) brightness(${ic.bright})`,
+            `z-index:${ic.z}`,
+          ].join(";")}
+        />
+      ))}
     </div>
 
     <!-- Text titles — z-index 5 so they sit above icons -->
     <div id="hero-titles" class="hero-titles">
-      <span class="f-hello">Hello!&nbsp;&nbsp;I'm</span>
-      <h1 class="f-name">Irvin Cossio Chavalier</h1>
+      <h1 class="f-hello">Irvin Cossio Chavalier</h1>
 
       <p class="f-subtitle">
-        <span class="word-1">Senior&nbsp;</span>
-        <span class="word-2">Mobile / Frontend&nbsp;</span>
+        <span class="word-2">Fullstack&nbsp;</span>
         <span class="word-3">Engineer</span>
       </p>
     </div>

@@ -1,7 +1,7 @@
 ---
 const skills = [
   { name: "React Native", img: "/assets/skills/react.png", color: "#61DAFB" },
-  { name: "React", img: "/assets/skills/react.png", color: "#61DAFB" },
+  { name: "Next.js", img: "/assets/skills/nextjs.png", color: "#61DAFB" },
   {
     name: "TypeScript",
     img: "/assets/skills/typescript.png",
@@ -17,12 +17,7 @@ const interests = [
   {
     label: "AI Models",
     icon: "brain-circuit",
-    desc: "Cloud & local LLMs — Gemma, Claude, Gemini",
-  },
-  {
-    label: "XR Web",
-    icon: "glasses",
-    desc: "WebXR, immersive 3D browser experiences",
+    desc: "Cloud & LLMs — Gemma, Claude, Gemini",
   },
   {
     label: "Lottie / Figma",
@@ -32,7 +27,7 @@ const interests = [
   {
     label: "Video Games",
     icon: "gamepad-2",
-    desc: "Avid gamer, game mechanics inspire my UX thinking",
+    desc: "game mechanics inspire my UX thinking",
   },
 ];
 
@@ -64,50 +59,51 @@ const yearsExp = new Date().getFullYear() - 2018;
     <!-- ── Left column: bio ── -->
     <div class="about-bio">
       <p class="section-label">Who I am</p>
-      <h2 class="section-title">About<br /><em>Me</em></h2>
+      <h2 class="section-title">
+        About
+        <br />
+        <em>Me</em>
+      </h2>
 
       <div class="bio-text">
         <p>
           From <strong>Cochabamba, Bolivia</strong>, I'm a Senior Mobile &amp;
-          Frontend Engineer with <strong>{yearsExp}+ years</strong> of experience
-          shipping products — from fintech wallets and delivery platforms to enterprise
-          mobile apps.
+          Fullstack Engineer with <strong>{yearsExp}+ years</strong> of
+          experience shipping products — from fintech wallets and delivery
+          platforms to enterprise mobile apps.
         </p>
         <p>
-          I specialize in cross-platform mobile development with <strong
-            >React Native</strong
-          >, native <strong>Android</strong> development with <strong
-            >Kotlin</strong
-          >, and modern web applications using <strong
-            >React + TypeScript</strong
-          >. My focus always centers on performance, clean architecture, and
-          crafting seamless user experiences.
+          I specialize in cross-platform mobile development with{" "}
+          <strong>React Native</strong>, native <strong>Android</strong>{" "}
+          development with <strong>Kotlin</strong>, and modern web applications
+          using <strong>React + TypeScript</strong>. My focus always centers on
+          performance, clean architecture, and crafting seamless user
+          experiences.
         </p>
         <p>
-          I hold a degree in <strong>Informatics Engineering</strong> from UMSS, where
-          my thesis achieved <strong>90% accuracy</strong> in classifying medicinal
-          plants using deep learning. That curiosity for ML never left.
+          I hold a degree in <strong>Informatics Engineering</strong> from UMSS,
+          where my thesis achieved <strong>90% accuracy</strong> in classifying
+          medicinal plants using deep learning. That curiosity for ML never
+          left.
         </p>
       </div>
 
       <!-- Certs & GDG -->
       <div class="certs-row">
-        {
-          certifications.map((cert) => (
-            <div class="cert-card">
-              <i data-lucide={cert.icon} class="cert-icon" />
-              <div>
-                <p class="cert-title">{cert.title}</p>
-                <p class="cert-issuer">{cert.issuer}</p>
-              </div>
-              {cert.link && (
-                <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                  <i data-lucide="arrow-right" class="cert-link-icon" />
-                </a>
-              )}
+        {certifications.map((cert) => (
+          <div class="cert-card">
+            <i data-lucide={cert.icon} class="cert-icon" />
+            <div>
+              <p class="cert-title">{cert.title}</p>
+              <p class="cert-issuer">{cert.issuer}</p>
             </div>
-          ))
-        }
+            {cert.link && (
+              <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                <i data-lucide="arrow-right" class="cert-link-icon" />
+              </a>
+            )}
+          </div>
+        ))}
       </div>
     </div>
 
@@ -118,18 +114,16 @@ const yearsExp = new Date().getFullYear() - 2018;
         <p class="section-label">Tech stack</p>
       </div>
       <div class="skills-grid">
-        {
-          skills.map((skill) => (
-            <div class="skill-pill">
-              {skill.img ? (
-                <img src={skill.img} alt={skill.name} width="20" height="20" />
-              ) : (
-                <span class="skill-dot" style={`background:${skill.color};`} />
-              )}
-              <span>{skill.name}</span>
-            </div>
-          ))
-        }
+        {skills.map((skill) => (
+          <div class="skill-pill">
+            {skill.img ? (
+              <img src={skill.img} alt={skill.name} width="20" height="20" />
+            ) : (
+              <span class="skill-dot" style={`background:${skill.color};`} />
+            )}
+            <span>{skill.name}</span>
+          </div>
+        ))}
       </div>
 
       <!-- Languages -->
@@ -147,17 +141,17 @@ const yearsExp = new Date().getFullYear() - 2018;
       </div>
 
       <!-- Interests -->
-      <p class="section-label" style="margin-top:40px;">Interests</p>
+      <p class="section-label" style="margin-top:40px;">
+        Interests
+      </p>
       <div class="interests-grid">
-        {
-          interests.map((item) => (
-            <div class="interest-card">
-              <i data-lucide={item.icon} class="interest-icon" />
-              <p class="interest-label">{item.label}</p>
-              <p class="interest-desc">{item.desc}</p>
-            </div>
-          ))
-        }
+        {interests.map((item) => (
+          <div class="interest-card">
+            <i data-lucide={item.icon} class="interest-icon" />
+            <p class="interest-label">{item.label}</p>
+            <p class="interest-desc">{item.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </div>

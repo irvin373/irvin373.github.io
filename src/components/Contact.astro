@@ -19,13 +19,22 @@ const socials = [
     icon: "mail",
     desc: "irvin373@gmail.com",
   },
+  {
+    label: "Dev.to",
+    href: "https://dev.to/irvin_chav",
+    img: null,
+    icon: "code",
+    desc: "dev.to/irvin_chav",
+  },
 ];
 ---
 
 <section id="contact" class="section-wrapper contact-section">
   <div class="section-inner">
     <p class="section-label">Let's talk</p>
-    <h2 class="section-title">Get In <em>Touch</em></h2>
+    <h2 class="section-title">
+      Get In <em>Touch</em>
+    </h2>
 
     <div class="contact-grid">
       <!-- Left: intro + social links -->
@@ -37,37 +46,39 @@ const socials = [
         </p>
 
         <div class="social-cards">
-          {
-            socials.map((s) => (
-              <a
-                href={s.href}
-                class="social-card glass-card"
-                target={s.href.startsWith("mailto") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-              >
-                <div class="social-icon-wrap">
-                  {s.img ? (
-                    <img src={s.img} alt={s.label} width="22" height="22" />
-                  ) : (
-                    <i
-                      data-lucide={s.icon}
-                      style="width:22px;height:22px;color:#fff;"
-                    />
-                  )}
-                </div>
-                <div class="social-info">
-                  <p class="social-label">{s.label}</p>
-                  <p class="social-desc">{s.desc}</p>
-                </div>
-                <i data-lucide="arrow-up-right" class="social-arrow" />
-              </a>
-            ))
-          }
+          {socials.map((s) => (
+            <a
+              href={s.href}
+              class="social-card glass-card"
+              target={s.href.startsWith("mailto") ? undefined : "_blank"}
+              rel="noopener noreferrer"
+            >
+              <div class="social-icon-wrap">
+                {s.img ? (
+                  <span
+                    class="social-icon"
+                    style={`--social-icon: url("${s.img}");`}
+                    aria-hidden="true"
+                  ></span>
+                ) : (
+                  <i
+                    data-lucide={s.icon}
+                    style="width:22px;height:22px;color:#fff;"
+                  />
+                )}
+              </div>
+              <div class="social-info">
+                <p class="social-label">{s.label}</p>
+                <p class="social-desc">{s.desc}</p>
+              </div>
+              <i data-lucide="arrow-up-right" class="social-arrow" />
+            </a>
+          ))}
         </div>
 
         <div class="avail-badge">
           <span class="avail-dot" aria-hidden="true"></span>
-          <span>Open to senior / staff engineer opportunities</span>
+          <span>Open to SR / SSR engineer opportunities</span>
         </div>
       </div>
     </div>
@@ -77,13 +88,12 @@ const socials = [
 <!-- Footer -->
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="footer-logo">
-      <span class="logo-badge-sm">IC</span>
-      <span>Irvin Cossio Chavalier</span>
-    </div>
     <p class="footer-copy">
       &copy; {new Date().getFullYear()} · Built with
-      <a href="https://astro.build" target="_blank" rel="noopener"> Astro </a>
+      <a href="https://astro.build" target="_blank" rel="noopener">
+        {" "}
+        Astro{" "}
+      </a>
       &amp; passion in Cochabamba 🇧🇴
     </p>
     <div class="footer-socials">
@@ -154,6 +164,18 @@ const socials = [
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+  }
+
+  .social-icon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    color: var(--text-light);
+    background-color: currentColor;
+    mask: var(--social-icon) no-repeat center / contain;
+    flex: none;
+    pointer-events: none;
+    forced-color-adjust: none;
   }
 
   .social-info {
